@@ -1,0 +1,52 @@
+<!--
+  Generated template for the AddBetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Bet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3>Place Bet</h3>
+    <form [formGroup]="betForm" (ngSubmit)="submitForm()">
+        <ion-item>   
+          <ion-label stacked>Launch</ion-label>
+            <ion-select formControlName="title">
+              <ion-option *ngFor="let key of list">{{this.launches[key].launchid}}</ion-option>
+            </ion-select>
+          
+          <!-- <ion-input type="text" formControlName="title"></ion-input> -->
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Will the launch go on time?</ion-label>
+          <ion-select formControlName="launchgo">
+            <ion-option value="2">Yes (Launch)</ion-option>
+            <ion-option value="1">Later (Delayed)</ion-option>
+            <ion-option value="0">No (Scrubbed)</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Will the boosters be landed / recovered?</ion-label>
+            <ion-select formControlName="landboost">
+              <ion-option value="1">Yes (Landed / Recovered)</ion-option>
+              <ion-option value="0">No (Failure to Recover)</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Will the payload make it?</ion-label>
+            <ion-select formControlName="deploypay">
+              <ion-option value="1">Yes (Successful Deployment)</ion-option>
+              <ion-option value="0">No (It will not deploy)</ion-option>
+            </ion-select>
+          </ion-item>
+       <br/>
+        <button block ion-button type="submit" [disabled]="!betForm.valid">Submit</button>
+      </form>
+</ion-content>

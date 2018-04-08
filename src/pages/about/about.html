@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Bets
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="!betsToDisplay" padding>
+    No bets to display.
+  </div>
+  <div *ngIf="betsToDisplay">
+    <div *ngFor='let key of list'>
+        <ion-card (click)="viewBet(bets[key])">
+          <ion-item>
+            <h1>{{key}}</h1>
+          </ion-item>
+          <ion-card-content>
+            <h5><b>Your bets:</b></h5>    
+            <ion-row>
+              <ion-col col-6>
+                <p>Launch status:</p>
+                <p>Payload deployed:</p>
+                <p>Booster landed:</p>
+              </ion-col>
+              <ion-col col-6>
+                <p>{{ bets[key].launchgo }}</p>
+                <p>{{ bets[key].deploypay }}</p>
+                <p>{{ bets[key].landboost }}</p>
+              </ion-col>
+            </ion-row>
+            
+          </ion-card-content>
+          <!-- <ion-row>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>12 Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+          </ion-row> -->
+        </ion-card>
+      </div>
+  </div>
+</ion-content>

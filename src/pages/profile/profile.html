@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+    <ion-refresher style="color: white !important;" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
+
+  <br/>
+  <div style="text-align: center;">
+    <h3>Welcome back,
+      <b>{{ user.username }}</b>
+    </h3>
+    <hr>
+  </div>
+  
+  <ion-row>
+    <ion-col col-8>
+      <div class="rank-circle">
+        <p>Your rank is</p>
+        <h2>{{ level.title }}</h2>
+        <h1>Level {{ level.value }}</h1>
+        <p>{{user.points}} Points</p>
+      </div>
+      <div id="outer-orbit">
+          <div class="outer-orbit-cirlces"></div>
+        </div>
+    </ion-col>
+    <ion-col col-4>
+      <fuel-gauge [progress]="user.points" [goal]="2500"></fuel-gauge>
+    </ion-col>
+  </ion-row>
+  <div class="card-background-page">
+    <ion-card (click)="newBet()">
+      <img style="border-radius: 20px;" src="../../assets/imgs/launch.png" />
+      <div class="card-title">New Launch</div>
+      <div class="card-subtitle">Tap now to make a bet</div>
+    </ion-card>
+  </div>
+</ion-content>

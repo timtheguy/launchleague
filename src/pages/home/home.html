@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Upcoming Launches</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="nextLaunches">
+    <ion-item *ngFor="let launch of nextLaunches.launches">
+      <h2>{{launch.name}}</h2>
+      <h3>Start: {{launch.windowstart}}</h3>
+      <p>Location: {{launch.location.name}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="!nextLaunches">
+    <ion-item *ngFor="let fake of fakeUsers" class="fakeItem">
+      <h2></h2>
+      <h3></h3>
+      <p></p>
+    </ion-item>
+  </ion-list>
+</ion-content>

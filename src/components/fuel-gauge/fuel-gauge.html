@@ -1,0 +1,44 @@
+<!-- <div class="progress-outer">
+    <div class="progress-inner" [style.width]="progress + '%'">
+        {{progress}}%
+    </div>
+</div> -->
+<div class="bar-container">
+    <div class="goal-bar" ng-controller="GoalBarController">
+      <div class="bar-wrap">
+        <hr class="bar-line" />   
+        <hr class="bar-line" />
+        <hr class="bar-line" />
+        <hr class="bar-line" />   
+        <hr class="bar-line" />
+        <hr class="bar-line" />
+        <hr class="bar-line" />
+        <hr class="bar-line" />
+        <hr class="bar-line" />
+        <hr class="bar-line" />
+
+        <div class="bar" [ngStyle]="{'transform': 'translate(' + 0 + 'px, ' + this.barPercent + '%)'}">
+          <div class="bar-info" ng-class="{'info-above': infoAbove}">
+            <div class="bar-info-inner">
+              {{current}} / {{goal}}
+            </div>
+          </div>
+        </div>
+        <span class="bar-label"></span>
+      </div>
+
+      <div class="bar-labels">
+        <span class="bar-label">{{goal}}</span>
+        <span class="bar-label">{{goal - goal / 10}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 2)}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 3)}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 4)}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 5)}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 6)}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 7)}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 8)}}</span>
+        <span class="bar-label">{{goal - (goal / 10 * 9)}}</span>
+        <span class="bar-label">0</span>
+      </div>
+    </div> <!-- /.goal-bar -->
+  </div>
